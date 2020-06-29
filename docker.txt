@@ -1,0 +1,41 @@
+##DOCKER -- COOKIE
+
+Conteneurs : Methode de cloisonnement autour de l'OS
+-> faire tourner des environnements LINUS isolee des uns des autres, avec des conteneurs partageant le meme noyeau, contrairement au VM il n'y a pas d'OS car utilise l'OS de la machine hote
+-> virtualise l'environnement d'execution comme le processeur, la memoire vive, le systeme de fichier mais pas la machine (toute la difference entre conteneurs et machine virtuelle)
+
+Cgroups : Control groups -> permet de limiter et d'isoler l'utilisation des ressources
+Namespace : espace de nommage
+
+Controleurs : 
+	- interraction des conteneurs avec OS
+	- securite par privilege et ressources
+	- duplication et la supression des conteneurs
+	- accessibilites
+	- portabilite
+= peut simuler des environnements differents
+
+VM : recree un serveur
+Conteneurs pas d'OS donc plus leger
+Serveurs peut heberger beaucoup plus de conteneurs
+LXC 
+Contient uniquement des applications avec leurs dependances
+
+Client-serveur
+
+Images docker : template pret a l'emploi avec des instructions pour la creation de conteneurs
+
+Docker file : permet de creer une image etape par etape de maniere automatise
+-> creer une image
+
+##DOCKER -- GRAFIKART
+
+LXC : gere les conteneurs
+
+	- Docker Daemon : permettre de faire fonctionner les differents conteneurs (tache de fond)
+	- Docker Client : systement de commande qui va permettre d'interragir avec les daemons
+	- Boot2Docker : machine virtuelle qui integre tous les outils pour fonctionner sur Windows
+
+##DOCKER -- OPENCLASSROOM
+
+
