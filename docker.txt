@@ -38,4 +38,20 @@ LXC : gere les conteneurs
 
 ##DOCKER -- OPENCLASSROOM
 
+Docker virtualise the operating system
 
+CONTAINER (DEBIAN)
+------------------
+DOCKER ENGINE
+------------------
+XUBUNTU
+-----------------
+HARDWARE
+
+Install Docker
+Root
+Docker pull centos
+Docker run -d -t --name [name] centos
+Docker ps (voir si bien sur Docker)
+Docker exwc -it [name] bash
+exit
