@@ -55,3 +55,22 @@ Docker run -d -t --name [name] centos
 Docker ps (voir si bien sur Docker)
 Docker exwc -it [name] bash
 exit
+
+DOC DOCKER
+
+docker run -> send the command to dockerd = communicate with daemon
+
+Docker registries : store Docker Image
+Docker configured to lokk for images on Docker Hub by default
+
+$docker pull / $docker run = the required images are pulled from your configured registry
+$docker push = image push on the configured registry
+
+To create own image : create a Dockerfile
+-> steps needed to create the image and run it
+-> creer une couche dans l'image
+-> quand rebuild l'image, seulement les changements qui sont rebuilt
+
+##EXPLORING DOCKER
+
+
