@@ -71,6 +71,25 @@ To create own image : create a Dockerfile
 -> creer une couche dans l'image
 -> quand rebuild l'image, seulement les changements qui sont rebuilt
 
-##EXPLORING DOCKER
+CREATE A CONTAINER ON DOCKER
 
+- penser a changer les droits sudo pour ne pas avoir a mettre sudo a chaque fois
 
+$ docker pull debian:buster
+## telechargement de l'image
+
+$ docker run -i -t [NUMERO ID] /bin/bash
+## creation du container en precisant le bash shell, cela va nous ouvrir une session bash qui va nous permettre de customiser l'image.
+-> root@e9c1799e3d4d:/# 
+
+$ exit
+## quitter bash
+
+$ docker ps -a
+## permet de voir tous les containers en cours
+
+$ docker start [NOM DE PORTS]
+## permet de dire quel containers on va utiliser
+
+$ docker attach [NOM DE PORTS]
+## re rentrer dans bash
