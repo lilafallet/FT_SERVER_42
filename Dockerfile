@@ -1,13 +1,11 @@
-FROM debian:buster
-RUN apt-get update && apt-get install -y \
-						nginx \
-						vim \
-						wget \
-COPY ./root
-WORKDIR ./root
-EXPOSE 80
-CMD
+FROM debian:buster-slim
 
-docker build -t [nom de l'image] .
-docker run -p 80:80 [nom de l'image]
--y -> permet de dire YES partout pour les installations
+RUN apt-get -y update && apt-get -y install nginx \
+						vim \
+						wget
+
+COPY srcs ./root/
+
+WORKDIR /root/
+
+ENTRYPOINT ["bash", "container_entrypoint.sh"]
