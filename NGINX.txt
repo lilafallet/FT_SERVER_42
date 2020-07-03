@@ -1,0 +1,6 @@
+Serveur Web
+Gere un traffic tres important
+nginx.org
+
+dans le fichier /etc/apt/sources.list.d/
+creer un fichier nginx.list
