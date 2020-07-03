@@ -8,4 +8,4 @@ COPY srcs ./root/
 
 WORKDIR /root/
 
-ENTRYPOINT ["bash", "container_entrypoint.sh"]
+ENTRYPOINT ["bash", "start.sh"]
