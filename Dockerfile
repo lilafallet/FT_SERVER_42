@@ -1,9 +1,7 @@
 FROM debian:buster-slim
 
 RUN apt-get -y update && apt-get -y install nginx \
-						systemd \
-						vim \
-						wget
+						vim
 
 COPY srcs ./root/
 
