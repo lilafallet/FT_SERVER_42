@@ -15,8 +15,11 @@ RUN apt-get -y update && apt-get -y install php php-mysql php-fpm php-cli \
 
 COPY /srcs/nginx.conf ./root/
 #copy the file configuration for nginx
-COPY /srcs/wp-config.php
-#copy the file configuration for wordpress
+COPY /srcs/WORDPRESS/ ./root/
+#copy the directory of wordpress
+COPY /srcs/WORDPRESS/wp-config-sample.php ./root/
+#copy the file configuration of wordpress
+COPY /srcs/PHPMYADMIN/config.sample.inc.php ./root/
 
 
 WORKDIR /root/
