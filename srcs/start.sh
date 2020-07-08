@@ -33,7 +33,7 @@ echo -e "${GREEN}The server.crt file is your site certificate suitable for use w
 
 # NGINX
 
-mv ./tmp/nginx.conf /etc/nginx/sites-available/localhost
+mv ./tmp/nginx-conf /etc/nginx/sites-available/localhost
 echo -e "${GREEN}mv the file configuration of nginx in the directory /etc/nginx/sites-available/localhost\n${NC}"
 ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/localhost
 echo -e "${GREEN}creation of a symbolic link between sites-available and sites-enabled\n${NC}"
@@ -58,7 +58,7 @@ echo -e "${GREEN}decompress the file\n${NC}"
 # f = tell the file to decompress
 # --strip-components = give number of leading components from file names before extraction# --strip-components 1 = will truncat only the file link of php and preserved the structure of the file /var/www/localhost/phpmyadmin
 # -C = create the archive
-mv ./tmp/phpmyadmin_conf.php /var/www/localhost/phpmyadmin/config.inc.php
+mv ./tmp/phpmyadmin.inc.php /var/www/localhost/phpmyadmin/config.inc.php
 echo -e "${GREEN}replace the file config.inc.php by the configuration file of phpmyadmin\n${NC}"
 
 # WORDPRESS
@@ -71,10 +71,10 @@ tar -xvzf latest.tar.gz
 echo -e "${GREEN}decompress the file\n${NC}"
 mv wordpress/ /var/www/localhost
 echo -e "${GREEN}moove the file in /var/www/localhost\n${NC}"
-mv /tmp/wordpress_conf.php /var/www/localhost/wordpress
+mv /tmp/wp-config.php /var/www/localhost/wordpress
 echo -e "${GREEN}moove the configuration file of wordpress in /var/www/localhost\n${NC}"
 
 service nginx restart
 echo -e "${GREEN}nginx restart\n${NC}"
 bash
-while true; do sleep 1000; done
+#while true; do sleep 1000; done
