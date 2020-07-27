@@ -25,8 +25,8 @@ echo -e "${GREEN} copy the string '<?php phpinfo(); ?>' in the file index.php ${
 # SSL
 
 mkdir /etc/nginx/ssl
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj "/C=FR/ST=France/L=Paris/O=no/OU=no/CN=lfallet/" -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
 echo -e "${GREEN}creation of the directory '/etc/nginx/ssl' where we will ad the key\n${NC}"
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
 echo -e "${GREEN}generate a certificate self-signed${NC}"
 echo -e "${GREEN}The self-signed SSL certificate is generated from the server.key private key and server.csr files${NC}"
 echo -e "${GREEN}The server.crt file is your site certificate suitable for use with Heroku’s SSL add-on along with the server.key private key.\n${NC}"
