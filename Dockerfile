@@ -14,6 +14,8 @@ RUN apt-get -y install php7.3-fpm php7.3-common php7.3-mysql php7.3-gmp php7.3-c
 # install phpmyadmin
 
 COPY ./srcs/start.sh ./
+COPY ./srcs/autoindex_on.sh ./tmp/autoindex_on.sh
+COPY ./srcs/autoindex_off.sh ./tmp/autoindex_off.sh
 COPY ./srcs/database.sql ./tmp/database.sql
 COPY ./srcs/nginx-conf ./tmp/nginx-conf
 COPY ./srcs/phpmyadmin.inc.php ./tmp/phpmyadmin.inc.php
