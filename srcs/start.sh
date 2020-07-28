@@ -77,5 +77,3 @@ echo -e "${GREEN}moove the configuration file of wordpress in /var/www/localhost
 service nginx restart
 echo -e "${GREEN}nginx restart\n${NC}"
 bash
-
-while true; do sleep 1000; done
