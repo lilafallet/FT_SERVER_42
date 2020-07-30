@@ -42,6 +42,7 @@ echo -e "${GREEN}The server.crt file is your site certificate suitable for use w
 echo "CREATE DATABASE wordpress;"  | mysql -u root --skip-password
 echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' WITH GRANT OPTION;" | mysql -u root --skip-password
 echo "update mysql.user set plugin='mysql_native_password' where user='root';" | mysql -u root --skip-password
+RUN mkdir var/www/localhost
 echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
 echo "exit;" 
 echo -e "${GREEN}tell to mysql to work with the database.sql file wich contain the database of Wordpress and Phpmyadmin\n${NC}"
@@ -61,28 +62,23 @@ echo -e "${GREEN}decompress the file\n${NC}"
 # -C = create the archive
 mv ./tmp/phpmyadmin.inc.php /var/www/localhost/phpmyadmin/config.inc.php
 echo -e "${GREEN}replace the file config.inc.php by the configuration file of phpmyadmin\n${NC}"
+echo "GRANT ALL ON *.* TO 'lila'@'localhost' IDENTIFIED BY 'hey123'" | mysql -u root
+echo "FLUSH PRIVILEGES;" | mysql -u root
 
 # WORDPRESS
 
-#cd /tmp/
-#echo -e "${GREEN}moove in the directory tmp\n${NC}"
-#wget -c https://wordpress.org/latest.tar.gz
-#echo -e "${GREEN}download wordpress\n${NC}"
-#tar -xvzf latest.tar.gz
-#echo -e "${GREEN}decompress the file\n${NC}"
-#mv wordpress/ /var/www/localhost
-#echo -e "${GREEN}moove the file in /var/www/localhost\n${NC}"
-#mv /tmp/wp-config.php /var/www/localhost/wordpress
-#echo -e "${GREEN}moove the configuration file of wordpress in /var/www/localhost\n${NC}"
-
+cd /tmp/
 wget https://wordpress.org/latest.tar.gz
 tar xzvf latest.tar.gz
 mv wordpress /var/www/localhost
 chown -R www-data:www-data /var/www/*
 chmod -R 755 /var/www/*
 rm -rf /etc/nginx/sites-enabled/default
-#mv var/www/localhost/wp-config.php /etc/nginx/wp-config.php
+cd ..
+mv tmp/wp-config.php /var/www/localhost/wordpress/wp-config.php
+cd tmp
 
 service nginx restart
+tail -f /var/log/nginx/access.log /var/log/nginx/error.log 
+sleep infinity
 echo -e "${GREEN}nginx restart\n${NC}"
-bash

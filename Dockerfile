@@ -15,10 +15,8 @@ RUN apt-get -y install php7.3-fpm php7.3-common php7.3-mysql php7.3-gmp php7.3-c
 
 COPY ./srcs/start.sh ./
 COPY ./srcs/autoindex.sh ./tmp/autoindex.sh
-COPY ./srcs/database.sql ./tmp/database.sql
 COPY ./srcs/nginx-conf ./tmp/nginx-conf
 COPY ./srcs/phpmyadmin.inc.php ./tmp/phpmyadmin.inc.php
-RUN mkdir var/www/localhost
-COPY ./srcs/wp-config.php ./var/www/localhost/wp-config.php
+COPY ./srcs/wp-config.php ./tmp/wp-config.php
 
 ENTRYPOINT ["bash", "start.sh"]
