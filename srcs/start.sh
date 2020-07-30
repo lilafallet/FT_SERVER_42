@@ -81,6 +81,7 @@ mv wordpress /var/www/localhost
 chown -R www-data:www-data /var/www/*
 chmod -R 755 /var/www/*
 rm -rf /etc/nginx/sites-enabled/default
+#mv var/www/localhost/wp-config.php /etc/nginx/wp-config.php
 
 service nginx restart
 echo -e "${GREEN}nginx restart\n${NC}"
