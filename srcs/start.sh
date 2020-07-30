@@ -39,7 +39,11 @@ echo -e "${GREEN}The server.crt file is your site certificate suitable for use w
 
 # MYSQL
 
-mysql < ./tmp/database.sql
+echo "CREATE DATABASE wordpress;"  | mysql -u root --skip-password
+echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' WITH GRANT OPTION;" | mysql -u root --skip-password
+echo "update mysql.user set plugin='mysql_native_password' where user='root';" | mysql -u root --skip-password
+echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
+echo "exit;" 
 echo -e "${GREEN}tell to mysql to work with the database.sql file wich contain the database of Wordpress and Phpmyadmin\n${NC}"
 
 # PHPMYADMIN
