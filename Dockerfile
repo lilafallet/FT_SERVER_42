@@ -18,6 +18,7 @@ COPY ./srcs/autoindex.sh ./tmp/autoindex.sh
 COPY ./srcs/database.sql ./tmp/database.sql
 COPY ./srcs/nginx-conf ./tmp/nginx-conf
 COPY ./srcs/phpmyadmin.inc.php ./tmp/phpmyadmin.inc.php
-COPY ./srcs/wp-config.php ./tmp/wp-config.php
+RUN mkdir var/www/localhost
+COPY ./srcs/wp-config.php ./var/www/localhost/wp-config.php
 
 ENTRYPOINT ["bash", "start.sh"]

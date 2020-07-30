@@ -64,16 +64,23 @@ echo -e "${GREEN}replace the file config.inc.php by the configuration file of ph
 
 # WORDPRESS
 
-cd /tmp/
-echo -e "${GREEN}moove in the directory tmp\n${NC}"
-wget -c https://wordpress.org/latest.tar.gz
-echo -e "${GREEN}download wordpress\n${NC}"
-tar -xvzf latest.tar.gz
-echo -e "${GREEN}decompress the file\n${NC}"
-mv wordpress/ /var/www/localhost
-echo -e "${GREEN}moove the file in /var/www/localhost\n${NC}"
-mv /tmp/wp-config.php /var/www/localhost/wordpress
-echo -e "${GREEN}moove the configuration file of wordpress in /var/www/localhost\n${NC}"
+#cd /tmp/
+#echo -e "${GREEN}moove in the directory tmp\n${NC}"
+#wget -c https://wordpress.org/latest.tar.gz
+#echo -e "${GREEN}download wordpress\n${NC}"
+#tar -xvzf latest.tar.gz
+#echo -e "${GREEN}decompress the file\n${NC}"
+#mv wordpress/ /var/www/localhost
+#echo -e "${GREEN}moove the file in /var/www/localhost\n${NC}"
+#mv /tmp/wp-config.php /var/www/localhost/wordpress
+#echo -e "${GREEN}moove the configuration file of wordpress in /var/www/localhost\n${NC}"
+
+wget https://wordpress.org/latest.tar.gz
+tar xzvf latest.tar.gz
+mv wordpress /var/www/localhost
+chown -R www-data:www-data /var/www/*
+chmod -R 755 /var/www/*
+rm -rf /etc/nginx/sites-enabled/default
 
 service nginx restart
 echo -e "${GREEN}nginx restart\n${NC}"
