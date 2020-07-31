@@ -4,21 +4,17 @@ NC='\033[0m'
 
 
 service nginx start
-echo -e "${GREEN}nginx start${NC}"
 service mysql start
-echo -e "${GREEN}mysql start\n${NC}"
 service php7.3-fpm start
-echo -e "${GREEN}phpmyadmin start\n${NC}"
 
 chown -R www-data /var/www/*
-echo -e "${GREEN}creation of the file www-data and move in /var/www/ ${RED}A REVOIR !!\n${NC}"
-chown -R 755 /var/www/*
-echo -e "${GREEN}give all the rights to the owner and the read and execution to the other in the directory /var/www\n${NC}"
+echo -e "${GREEN}[ ok ]${NC} give all the right to www-data on the directory /var/www/*"
+# www-data = web user on Ubuntu
 
 # GENERATE WEBSITE FOLDER
 
 mkdir /var/www/localhost
-echo -e "${GREEN}creation of the directory localhost and creation of the file index.php\n${NC}"
+echo -e "${GREEN}[ ok ]${NC} create "
 
 # NGINX
 

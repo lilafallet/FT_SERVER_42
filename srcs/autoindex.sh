@@ -23,6 +23,7 @@ case $1 in
 		echo -e "\e[31mERROR = ENTER ON OR OFF"
 		echo -n -e "\e[32mAUTOINDEX IS : "
 		echo | grep '\(autoindex on\|autoindex off\)' /etc/nginx/sites-enabled/nginx-conf | cut -c13-
+		# if the argument is different of ON or OFF, return an error
 		echo -e "\e[39m"
 		;;
 esac
