@@ -1,17 +1,17 @@
 ## FT_SERVER_42
 
-# REMOVE ALL STOPPED CONTAINERS / ALL NETWORKS NOT USED BY AT LEAST ONE CONTAINER / ALL DANGLING IMAGES / ALL DANGLING BUILD CACHE
+REMOVE ALL STOPPED CONTAINERS / ALL NETWORKS NOT USED BY AT LEAST ONE CONTAINER / ALL DANGLING IMAGES / ALL DANGLING BUILD CACHE
 ``$> docker system prune``
-# BUILD THE IMAGE
-* docker build -t test .
+BUILD THE IMAGE
+``$>docker build -t test .``
 RUN IMAGE AS A CONTAINER
-* docker run -it -p 80:80 -p 443:443 test
+``$>docker run -it -p 80:80 -p 443:443 test``
 PRINT LIST OF CONTAINERS
-* docker ps -a
+``$>docker ps -a``
 TO RUN A COMMAND IN A RUIING CONTAINER
-* docker exec -ti [container's name] bash
+``$>docker exec -ti [container's name] bash``
 STOP A CONTAINER
-* docker stop [container's name]
+``$>docker stop [container's name]``
 
 * USER phpmyadmin : lila
 * MDP phpmyadmin : hey123
