@@ -27,6 +27,6 @@
 
 ## SI APACHE2 / MARCHE TOUJOURS PAS
 
-``$> sudo vim /etc/apache2/ports.conf``
-``$> sudo vim /etc/apache2/sites-available/default.ssl.conf``
-``$> sudo vim /etc/apache2/sites-available/000-default.conf``
+* ``$> sudo vim /etc/apache2/ports.conf``
+* ``$> sudo vim /etc/apache2/sites-available/default.ssl.conf``
+* ``$> sudo vim /etc/apache2/sites-available/000-default.conf``
