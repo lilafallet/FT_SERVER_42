@@ -1,11 +1,17 @@
 ## FT_SERVER_42
 
+REMOVE ALL STOPPED CONTAINERS / ALL NETWORKS NOT USED BY AT LEAST ONE CONTAINER / ALL DANGLING IMAGES / ALL DANGLING BUILD CACHE
 * docker system prune
+BUILD THE IMAGE
 * docker build -t test .
-*docker run -it -p 80:80 -p 443:443 test
+RUN IMAGE AS A CONTAINER
+* docker run -it -p 80:80 -p 443:443 test
+PRINT LIST OF CONTAINERS
 * docker ps -a
-* docker exec -ti [nom container] bash
-* docker stop [nom container]
+TO RUN A COMMAND IN A RUIING CONTAINER
+* docker exec -ti [container's name] bash
+STOP A CONTAINER
+* docker stop [container's name]
 
 * USER phpmyadmin : lila
 * MDP phpmyadmin : hey123
@@ -18,3 +24,5 @@
 ## SI APACHE2 / MARCHE TOUJOURS PAS
 
 * sudo vim /etc/apache2/ports.conf
+* sudo vim /etc/apache2/sites-available/default.ssl.conf
+* sudo vim /etc/apache2/sites-available/000-default.conf
