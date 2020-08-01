@@ -8,7 +8,7 @@ service mysql start
 service php7.3-fpm start
 
 chown -R www-data /var/www/*
-echo -e "${GREEN}[ ok ]${NC} Give all the right to www-data on the directory /var/www/*"
+echo -e "${GREEN}[ ok ]${NC} The owner of /var/www and subdirectories (recursively) become the user www-data"
 # www-data = web user on Ubuntu
 
 ################################################################################
@@ -17,14 +17,14 @@ echo -e "${GREEN}[ ok ]${NC} Give all the right to www-data on the directory /va
 
 mkdir /var/www/localhost
 echo -e "${GREEN}[ ok ]${NC} Create the directory localhost"
-# /var/www/localhost = where you will put the different "application" (wordpress, phpmyadmin) and access to it with the autoindex on with the localhost
+# /var/www/localhost = where you will put the differents "applications" (wordpress, phpmyadmin)
 
 ################################################################################
 # NGINX
 ################################################################################
 
 mv ./tmp/nginx-conf /etc/nginx/sites-available
-echo -e "${GREEN}[ ok ]${NC} Moove the configuration file of nginx in the directory by default"
+echo -e "${GREEN}[ ok ]${NC} Moove the configuration file of nginx in the default directory"
 # /etc/nginx/sites-available = by default, on Debian Systems, Nginx server blocks configuration files are stored in this directory
 ln -s /etc/nginx/sites-available/nginx-conf /etc/nginx/sites-enabled/
 echo -e "${GREEN}[ ok ] ${NC} Create a symbolic link between sites-available and sites-enabled"
@@ -73,8 +73,8 @@ echo -e "${GREEN}[ ok ]${NC} Download phpmyadmin"
 tar -xvf phpMyAdmin-4.9.0.1-all-languages.tar.gz --strip-components 1 -C /var/www/localhost/phpmyadmin
 echo -e "${GREEN}[ ok ]${NC} Decompress the instalation directory of phpmyadmin in /var/www/localhost/phpmyadmin"
 # x = extract the archive
-# v = print what is going on
-# f = tell the file to decompress
+# v = print verbose
+# f = target file
 # --strip-components = give number of leading components from file names before extraction
 # --strip-components 1 = will truncat only the file link of php and preserved the structure of the file /var/www/localhost/phpmyadmin
 # -C = create the archive
@@ -92,11 +92,8 @@ echo "FLUSH PRIVILEGES;" | mysql -u root
 cd /tmp/
 wget https://wordpress.org/latest.tar.gz
 echo -e "${GREEN}[ ok ]${NC} Download wordpress"
-tar xzvf latest.tar.gz
+tar -xzvf latest.tar.gz
 echo -e "${GREEN}[ ok ]${NC} Decompress the instalation directory of wordpress"
-# x = extract the archive
-# v = print what is going on
-# f = tell the file to decompress
 mv wordpress /var/www/localhost
 echo -e "${GREEN}[ ok ]${NC} Moove the instalation directory of wordpress in /var/www/localhot"
 mv /tmp/wp-config.php /var/www/localhost/wordpress/wp-config.php
