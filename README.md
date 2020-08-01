@@ -18,15 +18,18 @@
 * USER phpmyadmin : lila
 * MDP phpmyadmin : hey123
 
-## SI PORT 80 OU 443 UTILISE
+## IF PORT 80 IS ALREADY USE
 
 ##### STOP PORT 80/443 : 
 ``$> bash srcs/port.sh stop``
 ##### START PORT 80/443 :
 ``$> bash srcs/port.sh start``
 
-## SI APACHE2 / MARCHE TOUJOURS PAS
+## IF STILL DOESN'T WORK AND PORT 80 IS USED BY APACHE2
 
 * ``$> sudo vim /etc/apache2/ports.conf``
 * ``$> sudo vim /etc/apache2/sites-available/default.ssl.conf``
 * ``$> sudo vim /etc/apache2/sites-available/000-default.conf``
+
+## IF STILL DOESN'T WORK
+``$> docker run -it -p 4000:80 -p 443:443 test``
