@@ -13,6 +13,8 @@
 > STOP A CONTAINER
 ``$>docker stop [container's name]``
 
+## PHPMYADMIN
+
 * USER phpmyadmin : lila
 * MDP phpmyadmin : hey123
 
