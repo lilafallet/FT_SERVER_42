@@ -1,8 +1,12 @@
 #!/bin/bash
 
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m'
+
 case $1 in
 	"ON")
-		echo -e "\e[32mAUTOINDEX ON\e[39m"
+		echo -e "${GREEN}AUTOINDEX ON${NC}"
 		sed -i 's/autoindex off/autoindex on/' /etc/nginx/sites-enabled/nginx-conf
 		# if autoindex is on OFF, replace by ON
 		# else if already on ON, do nothing
@@ -11,7 +15,7 @@ case $1 in
 		echo  ""
 		;;
 	"OFF")
-		echo -e "\e[31mAUTOINDEX OFF\e[39m"
+		echo -e "${RED}AUTOINDEX OFF${NC}"
 		sed -i 's/autoindex on/autoindex off/' /etc/nginx/sites-enabled/nginx-conf
 		# if autoindex is on ON, replace by OFF
 		# else if already on OFF, do nothing

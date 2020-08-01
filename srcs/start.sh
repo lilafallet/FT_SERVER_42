@@ -1,3 +1,5 @@
+#!/bin/bash
+
 GREEN='\033[0;32m'
 NC='\033[0m'
 
@@ -32,7 +34,6 @@ echo -e "${GREEN}[ ok ] ${NC} Create a symbolic link between sites-available and
 # SSL
 ################################################################################
 
-#mkdir /etc/nginx/ssl
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj "/C=FR/ST=France/L=Paris/O=no/OU=no/CN=lfallet/" -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
 echo -e "${GREEN}[ ok ]${NC} Generate the ssl certificate key"
 echo -e "${GREEN}[ ok ]${NC} Create the directory /etc/ssl/certs/"
@@ -58,7 +59,6 @@ echo "update mysql.user set plugin='mysql_native_password' where user='root';" |
 echo -e "${GREEN}[ ok ]${NC} Change MySQL Server authentification plugin (password) for root user"
 echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
 # if we want to INSERT, DELETE or UPDATE
-# echo "exit;" 
 
 ################################################################################
 # PHPMYADMIN
@@ -99,13 +99,8 @@ echo -e "${GREEN}[ ok ]${NC} Decompress the instalation directory of wordpress"
 # f = tell the file to decompress
 mv wordpress /var/www/localhost
 echo -e "${GREEN}[ ok ]${NC} Moove the instalation directory of wordpress in /var/www/localhot"
-#chown -R www-data:www-data /var/www/*
-#chmod -R 755 /var/www/*
-#rm -rf /etc/nginx/sites-enabled/default
-#cd ..
 mv /tmp/wp-config.php /var/www/localhost/wordpress/wp-config.php
 echo -e "${GREEN}[ ok ]${NC} Replace the file wp-config.php by our configuration file of wordpress${NC}"
-#cd tmp
 
 ################################################################################
 # LAUNCH
