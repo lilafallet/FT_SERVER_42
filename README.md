@@ -35,8 +35,8 @@
 * ``$> sudo vim /etc/apache2/ports.conf``
 * ``$> sudo vim /etc/apache2/sites-available/default.ssl.conf``
 * ``$> sudo vim /etc/apache2/sites-available/000-default.conf``
-##### change 80 by 7080
-##### change 443 by 7443
+##### -> change 80 by 7080
+##### -> change 443 by 7443
 
 ## IF STILL DOESN'T WORK
 ``$> docker run -it -p 4000:80 -p 443:443 test``
