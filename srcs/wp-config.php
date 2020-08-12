@@ -55,12 +55,6 @@ define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
 define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
 define( 'NONCE_SALT',       'put your unique phrase here' );
 
-define('WORDPRESS_DB_HOST', 'db:localhost');
-define('WORDPRESS_DB_USER', 'lila');
-define('WORDPRESS_DB_PASSWORD', 'hey123');
-define('WORDPRESS_DB_NAME', 'wordpress');
-
-
 /**#@-*/
 
 /**

@@ -21,4 +21,5 @@ COPY ./srcs/phpmyadmin.inc.php ./tmp/phpmyadmin.inc.php
 # copy the phpmyadmin's file configuration
 COPY ./srcs/wp-config.php ./tmp/wp-config.php
 # copy the wordpress's file configuration
+
 ENTRYPOINT ["bash", "start.sh"]

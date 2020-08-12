@@ -58,7 +58,6 @@ echo -e "${GREEN}[ ok ]${NC} Give all privilege to the root user"
 echo "update mysql.user set plugin='mysql_native_password' where user='root';" | mysql -u root --skip-password
 echo -e "${GREEN}[ ok ]${NC} Change MySQL Server authentification plugin (password) for root user"
 echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
-mysql wordpress -u root < /root/wordpress.sql
 
 # if we want to INSERT, DELETE or UPDATE
 
@@ -100,7 +99,6 @@ mv wordpress /var/www/localhost
 echo -e "${GREEN}[ ok ]${NC} Moove the instalation directory of wordpress in /var/www/localhot"
 mv /tmp/wp-config.php /var/www/localhost/wordpress/wp-config.php
 echo -e "${GREEN}[ ok ]${NC} Replace the file wp-config.php by our configuration file of wordpress${NC}"
-rm -rf /var/www/localhost/wordpress/wp-config-sample.php
 
 ################################################################################
 # LAUNCH
