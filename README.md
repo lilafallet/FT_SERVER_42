@@ -1,6 +1,6 @@
 ## FT_SERVER_42
 
-##### REMOVE ALL STOPPED CONTAINERS / ALL NETWORKS NOT USED BY AT LEAST ONE CONTAINER / ALL DANGLING IMAGES / ALL DANGLING BUILD CACHE :
+##### REMOVE ALL STOPPED CONTAINERS / ALL UNUSED NETWORKS BY AT LEAST ONE CONTAINERS / ALL DANGLING IMAGES / ALL DANGLING BUILD CACHE :
 ``$> docker system prune``
 ##### BUILD THE IMAGE :
 ``$> docker build -t test .``
@@ -30,7 +30,7 @@
 ##### START PORT 80/443 :
 ``$> bash srcs/port.sh start``
 
-## IF STILL DOESN'T WORK AND PORT 80 IS USED BY APACHE2
+## IF IT STILL DOESN'T WORK AND PORT 80 IS USED BY APACHE2
 
 * ``$> sudo vim /etc/apache2/ports.conf``
 * ``$> sudo vim /etc/apache2/sites-available/default.ssl.conf``
